@@ -3,6 +3,8 @@
 dir=`dirname $0`
 source_file="$dir/users_list.txt"
 
+i=1
+
 for user_data in $(cat "$source_file");
 do
 
@@ -21,7 +23,8 @@ $password
 
 Y
 EOF
-
+#[ $i -eq 1 ] && exit 3
+#i=$((i+1))
 if [ $? -ne 0 ];
 then
 echo "error: $login alredy exists"
